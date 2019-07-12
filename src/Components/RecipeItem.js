@@ -1,7 +1,25 @@
 import React, { Component } from 'react'
-// import axios from 'axios'
+
+import axios from 'axios'
 
 class RecipeItem extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            newComment: ""
+        }
+    }
+    handleChange = e => {
+        this.setState({ newComment: e.target.value })
+    }
+
+    handleClick = () => {
+        axios
+            .put("/api/recipes/" + this.props.comment, { comment: this.state.newComment })
+            .then(response => {
+                this.props.editComment(response.data)
+            })
+    }
     render() {
         return (
             <li>
@@ -13,6 +31,12 @@ class RecipeItem extends Component {
                     src={this.props.img}
                     alt={this.props.dish}
                 />
+                <input
+                    placeholder="type here to change comments"
+                    value={this.state.newComment}
+                    onChange={this.handleChange}
+                />
+                <button onClick={this.handleClick}>Edit Comment</button>
                 <button>Add to Favorites</button>
             </li>)
     }

@@ -27,9 +27,16 @@ const addRecipe = (req, res) => {
     recipes.unshift({ dish, ing, dir, comment, img })
     res.json(recipes)
 }
+const editComment = (req, res) => {
+    const { comment } = req.params;
+    const selectedElement = recipes.find(recipe => recipe.comment === comment)
+    selectedElement.comment = req.body.comment
+    res.json(recipes)
+}
 
 
 module.exports = {
     getRecipes,
-    addRecipe
+    addRecipe,
+    editComment
 }

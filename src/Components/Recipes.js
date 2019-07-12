@@ -25,6 +25,9 @@ export default class Recipes extends Component {
                 })
             })
     }
+    editComment = newComment => {
+        this.setState({ comment: newComment })
+    }
 
     render() {
         return (
@@ -32,6 +35,7 @@ export default class Recipes extends Component {
                 <ul>
                     {this.state.recipes.map(recipe => (
                         <RecipeItem
+                            editComment={this.editComment}
                             dish={recipe.dish}
                             ing={recipe.ing}
                             dir={recipe.dir}
