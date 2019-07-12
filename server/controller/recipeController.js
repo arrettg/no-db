@@ -28,15 +28,37 @@ const addRecipe = (req, res) => {
     res.json(recipes)
 }
 const editComment = (req, res) => {
-    const { comment } = req.params;
-    const selectedElement = recipes.find(recipe => recipe.comment === comment)
-    selectedElement.comment = req.body.comment
+    const { comment } = req.body;
+    const updateDish = req.params.dish;
+    const recipeIndex = recipes.findIndex(recipe => recipe.dish == updateDish);
+    let recipe = recipes[recipeIndex]
+
+    recipes[recipeIndex] = {
+        dish: recipe.dish,
+        ing: recipe.ing,
+        dir: recipe.dir,
+        comment: comment || recipe.comment,
+        img: recipe.img
+    }
+
     res.json(recipes)
 }
 
 
+const addFavorite = (req, res) => {
+    // const { dish, ing, dir, comment, img } = req.body
+    const addDish = req.params.dish
+    const recipeIndex = recipes.findIndex(recipe => recipe.dish == addDish)
+    let recipe = recipes[recipeIndex]
+
+
+
+    res.json(recipe)
+}
+
 module.exports = {
     getRecipes,
     addRecipe,
-    editComment
+    editComment,
+    addFavorite
 }

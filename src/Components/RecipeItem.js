@@ -6,19 +6,30 @@ class RecipeItem extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            newComment: ""
+            newComment: "",
+
         }
     }
     handleChange = e => {
         this.setState({ newComment: e.target.value })
     }
 
+    handleClickAdd = () => {
+        axios
+            .post('/api/favorites/' + this.props.dish)
+            .then(response => {
+                this.props.favorites.unshift(response.data)
+            })
+
+    }
+
     handleClick = () => {
         axios
-            .put("/api/recipes/" + this.props.comment, { comment: this.state.newComment })
+            .put("/api/recipes/" + this.props.dish, { comment: this.state.newComment })
             .then(response => {
                 this.props.editComment(response.data)
             })
+        window.location.reload(true)
     }
     render() {
         return (
@@ -37,7 +48,7 @@ class RecipeItem extends Component {
                     onChange={this.handleChange}
                 />
                 <button onClick={this.handleClick}>Edit Comment</button>
-                <button>Add to Favorites</button>
+                <button onClick={this.handleClickAdd}>Add to Favorites</button>
             </li>)
     }
 
