@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import FavoriteItem from './FavoriteItem'
-import RecipeItem from './RecipeItem';
+// import RecipeItem from './RecipeItem';
 
 
 export default class FavoritesList extends Component {
@@ -33,8 +33,14 @@ export default class FavoritesList extends Component {
                 <div>
                     <ul>
                         {this.state.favorites.map(favorite => (
-                            <RecipeItem
-                                favorites={this.state.favorites}
+                            <FavoriteItem
+
+                                dish={favorite.dish}
+                                ing={favorite.ing}
+                                dir={favorite.dir}
+                                comment={favorite.comment}
+                                img={favorite.img}
+                                key={favorite.dish}
                             />
                         ))}
                     </ul>

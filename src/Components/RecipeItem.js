@@ -17,9 +17,7 @@ class RecipeItem extends Component {
     handleClickAdd = () => {
         axios
             .post('/api/favorites/' + this.props.dish)
-            .then(response => {
-                this.props.favorites.unshift(response.data)
-            })
+
 
     }
 
