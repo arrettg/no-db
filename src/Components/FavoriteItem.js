@@ -1,8 +1,15 @@
 import React, { Component } from 'react'
+import axios from 'axios';
 
 
 class FavoriteItem extends Component {
 
+
+    handleClickDelete = () => {
+        axios
+            .delete('/api/favorites/' + this.props.dish)
+        window.location.reload()
+    }
     render() {
         return (
             <li>
@@ -15,6 +22,7 @@ class FavoriteItem extends Component {
                     src={this.props.img}
                     alt={this.props.dish}
                 />
+                <button onClick={this.handleClickDelete}>Delete</button>
             </li>
 
 

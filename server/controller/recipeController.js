@@ -53,10 +53,23 @@ const editComment = (req, res) => {
 }
 
 
-const addFavorite = (req, res) => {
+const removeFavorite = (req, res) => {
 
     const addDish = req.params.dish
-    const recipeIndex = recipes.findIndex(recipe => recipe.dish == addDish)
+    const recipeIndex = favorites.findIndex(recipe => recipe.dish == addDish)
+    let recipe = favorites[recipeIndex]
+
+    favorites.splice(recipe, 1)
+
+
+
+    res.json(favorites)
+}
+
+const addFavorite = (req, res) => {
+
+    const removeDish = req.params.dish
+    const recipeIndex = recipes.findIndex(recipe => recipe.dish == removeDish)
     let recipe = recipes[recipeIndex]
 
     favorites.unshift(recipe)
@@ -71,5 +84,6 @@ module.exports = {
     addRecipe,
     editComment,
     addFavorite,
-    getFavorites
+    getFavorites,
+    removeFavorite
 }

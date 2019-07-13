@@ -34,7 +34,7 @@ export default class FavoritesList extends Component {
                     <ul>
                         {this.state.favorites.map(favorite => (
                             <FavoriteItem
-
+                                favorites={favorite}
                                 dish={favorite.dish}
                                 ing={favorite.ing}
                                 dir={favorite.dir}

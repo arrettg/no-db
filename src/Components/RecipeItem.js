@@ -31,7 +31,7 @@ class RecipeItem extends Component {
     }
     render() {
         return (
-            <li>
+            <li className="recipe-item">
                 <h3>{this.props.dish}</h3>
                 <p>Ingredients: {this.props.ing}</p>
                 <p>Directions: {this.props.dir}</p>

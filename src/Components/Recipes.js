@@ -31,8 +31,8 @@ export default class Recipes extends Component {
 
     render() {
         return (
-            <div>
-                <ul>
+            <section className="recipe-list">
+                <ul >
                     {this.state.recipes.map(recipe => (
                         <RecipeItem
                             editComment={this.editComment}
@@ -47,7 +47,7 @@ export default class Recipes extends Component {
                     ))}
                 </ul>
                 <p>{this.state.error}</p>
-            </div>
+            </section>
         )
     }
 }
