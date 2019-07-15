@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import Recipes from './Recipes';
-import NewRecipe from './NewRecipe';
-import FavoritesList from './FavoritesList'
 
 
 function Header() {
@@ -10,7 +7,7 @@ function Header() {
 
     return (
         <header className="nav">
-
+            <h1> Family Recipes</h1>
         </header>
 
     )

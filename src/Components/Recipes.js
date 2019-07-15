@@ -10,6 +10,7 @@ export default class Recipes extends Component {
             recipes: [],
             error: "",
         }
+        this.handleChange = this.handleChange.bind(this)
     }
 
     componentDidMount() {
@@ -29,9 +30,28 @@ export default class Recipes extends Component {
         this.setState({ comment: newComment })
     }
 
+    handleChange(e) {
+        let currentList = []
+        let newList = []
+        if (e.target.value !== "") {
+            currentList = this.state.recipes
+            newList = currentList.filter(recipe => {
+                const lc = recipe.dish.toLowerCase()
+                const filter = e.target.value.toLowerCase()
+                return lc.includes(filter)
+            })
+        } else {
+            newList = this.state.recipes
+        } this.setState({
+            recipes: newList
+        })
+    }
+
+
     render() {
         return (
             <section className="recipe-list">
+                <input type="text" className="search" onChange={this.handleChange} placeholder="search"></input>
                 <ul >
                     {this.state.recipes.map(recipe => (
                         <RecipeItem

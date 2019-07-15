@@ -12,17 +12,17 @@ class FavoriteItem extends Component {
     }
     render() {
         return (
-            <li>
+            <li className="recipe-item">
 
                 <h3>{this.props.dish}</h3>
-                <p>Ingredients: {this.props.ing}</p>
-                <p>Directions: {this.props.dir}</p>
-                <p>Comments: {this.props.comment}</p>
+                <p><super>Ingredients:</super>{this.props.ing}</p>
+                <p><super>Directions:</super> {this.props.dir}</p>
+                <p><super>Comments: </super>{this.props.comment}</p>
                 <img
                     src={this.props.img}
                     alt={this.props.dish}
                 />
-                <button onClick={this.handleClickDelete}>Delete</button>
+                <button onClick={this.handleClickDelete} id="nav-button">Delete</button>
             </li>
 
 

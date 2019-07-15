@@ -33,20 +33,25 @@ class RecipeItem extends Component {
         return (
             <li className="recipe-item">
                 <h3>{this.props.dish}</h3>
-                <p>Ingredients: {this.props.ing}</p>
-                <p>Directions: {this.props.dir}</p>
-                <p>Comments: {this.props.comment}</p>
+                <p id="recipe-text"><strong>
+                    Ingredients:</strong> {this.props.ing}</p>
+
+                <p id="recipe-text"><strong>Directions: </strong>{this.props.dir}</p>
+                <p id="recipe-text"><strong>Comments:</strong> {this.props.comment}</p>
                 <img
                     src={this.props.img}
                     alt={this.props.dish}
                 />
-                <input
-                    placeholder="type here to change comments"
-                    value={this.state.newComment}
-                    onChange={this.handleChange}
-                />
-                <button onClick={this.handleClick}>Edit Comment</button>
-                <button onClick={this.handleClickAdd}>Add to Favorites</button>
+                <div className="recipe-button-wrapper">
+                    <button id="recipe-button" onClick={this.handleClick}>Edit Comment</button>
+                    <input id="edit-comment"
+                        placeholder="type here to change comments"
+                        value={this.state.newComment}
+                        onChange={this.handleChange}
+                    />
+
+                    <button id="recipe-button" onClick={this.handleClickAdd}>Add to Favorites</button>
+                </div>
             </li>)
     }
 

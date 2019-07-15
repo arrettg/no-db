@@ -20,7 +20,7 @@ export default class NewRecipe extends Component {
 
     render() {
         return (
-            <form
+            <form className="recipe-form"
                 onSubmit={
                     e => {
                         e.preventDefault();
@@ -48,38 +48,38 @@ export default class NewRecipe extends Component {
                         }
                     }}
             >
-                <input
+                Dish <input id="input"
                     name='dish'
                     placeholder='dish name'
                     onChange={this.handleChange}
                     value={this.state.dish}
                 />
-                <input
+                Ingredients   <input id="input"
                     name='ing'
                     placeholder='ingredients'
                     onChange={this.handleChange}
                     value={this.state.ing}
                 />
-                <input
+                Directions  <input id="input"
                     name='dir'
                     placeholder='directions'
                     onChange={this.handleChange}
                     value={this.state.dir}
                 />
-                <input
+                Comments  <input id="input"
                     name='comment'
                     placeholder='type some comments here'
                     onChange={this.handleChange}
                     value={this.state.comment}
                 />
-                <input
+                Image  <input id="input"
                     name='img'
                     placeholder='paste an image here'
                     onChange={this.handleChange}
                     value={this.state.img}
                 />
-                <button type="reset">Cancel</button>
-                <button type="submit">"Submit"</button>
+
+                <button id="nav-button" type="submit">Submit</button>
                 {this.state.error ? <p>{this.state.error}</p> : null}
             </form>
         )

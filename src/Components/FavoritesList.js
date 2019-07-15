@@ -30,7 +30,7 @@ export default class FavoritesList extends Component {
         return (
             <>
 
-                <div>
+                <section className="recipe-list">
                     <ul>
                         {this.state.favorites.map(favorite => (
                             <FavoriteItem
@@ -45,7 +45,7 @@ export default class FavoritesList extends Component {
                         ))}
                     </ul>
                     <p>{this.state.error}</p>
-                </div>
+                </section>
             </>
         )
     }
