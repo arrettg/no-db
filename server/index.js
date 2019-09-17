@@ -5,7 +5,7 @@ const massive = require("massive");
 const recipeController = require("./controller/recipeController");
 const authCtrl = require("./controller/authController");
 
-const PORT = 4040;
+const PORT = 4041;
 
 const { SESSION_SECRET, CONNECTION_STRING } = process.env;
 

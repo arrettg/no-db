@@ -1,6 +1,6 @@
 {
   "name": "no-db",
-  "proxy": "http://localhost:4040",
+  "proxy": "http://localhost:4041",
   "main": "server/index.js",
   "version": "0.1.0",
   "private": true,
