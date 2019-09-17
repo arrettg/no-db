@@ -5,9 +5,9 @@ import "../styles/auth.css";
 function Header() {
   return (
     <div className="head">
-      <header className="nav">
+      <div className="nav">
         <h1> Family Recipes</h1>
-      </header>
+      </div>
       <nav className="button-wrapper">
         <Link to="/add-recipe">
           <button id="nav-button">Add Recipe</button>

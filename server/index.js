@@ -34,9 +34,9 @@ app.post("/auth/login", authCtrl.userLogin);
 //recipes
 app.get("/api/recipes", recipeController.getRecipes);
 app.post("/api/recipes", recipeController.addRecipe);
-app.put("/api/recipes/:dish", recipeController.editComment);
+app.put("/api/recipes/:id", recipeController.editComment);
 app.get("/api/favorites", recipeController.getFavorites);
 app.post("/api/favorites/:id", recipeController.addFavorite);
-app.delete("/api/favorites/:dish", recipeController.removeFavorite);
+app.delete("/api/favorites/:id", recipeController.removeFavorite);
 
 app.listen(PORT, () => console.log(`Listening on ${PORT}`));

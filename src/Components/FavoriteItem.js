@@ -3,10 +3,6 @@ import axios from "axios";
 import "../styles/auth.css";
 
 class FavoriteItem extends Component {
-  handleClickDelete = () => {
-    axios.delete("/api/favorites/" + this.props.dish);
-    window.location.reload();
-  };
   render() {
     return (
       <li className="recipe-item">
@@ -23,7 +19,12 @@ class FavoriteItem extends Component {
           {this.props.comment}
         </p>
         <img src={this.props.img} alt={this.props.dish} />
-        <button onClick={this.handleClickDelete} id="nav-button">
+        <button
+          onClick={() => {
+            axios.delete(`/api/favorites/${this.props.id}`);
+          }}
+          id="nav-button"
+        >
           Delete
         </button>
       </li>

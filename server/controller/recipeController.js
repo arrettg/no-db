@@ -19,35 +19,23 @@ const addRecipe = async (req, res) => {
     .add_new_recipe([dish, ing, dir, img, comment]);
   res.status(200).json(newRecipe);
 };
-const editComment = (req, res) => {
+const editComment = async (req, res) => {
   const { comment } = req.body;
-  const updateDish = req.params.dish;
-  const recipeIndex = recipes.findIndex(recipe => recipe.dish == updateDish);
-  let recipe = recipes[recipeIndex];
-
-  recipes[recipeIndex] = {
-    dish: recipe.dish,
-    ing: recipe.ing,
-    dir: recipe.dir,
-    comment: comment || recipe.comment,
-    img: recipe.img
-  };
-
-  res.json(recipes);
+  const updateDish = req.params.id;
+  await req.app.get("db").edit_comment([comment, updateDish]);
+  res.sendStatus(200);
 };
 
-const removeFavorite = (req, res) => {
-  const addDish = req.params.dish;
-  const recipeIndex = favorites.findIndex(recipe => recipe.dish == addDish);
-  let recipe = favorites[recipeIndex];
+const removeFavorite = async (req, res) => {
+  const Dish = req.params.id;
+  const user = req.session.user.id;
+  await req.app.get("db").remove_favorite([Dish, user]);
 
-  favorites.splice(recipe, 1);
-
-  res.json(favorites);
+  res.sendStatus(200);
 };
 
 const addFavorite = async (req, res) => {
-  console.log(req.params);
+  //   console.log(req.params);
   const recipe_id = req.params.id;
   const user_id = req.session.user.id;
   await req.app.get("db").add_to_favorites([user_id, recipe_id]);

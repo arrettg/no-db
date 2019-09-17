@@ -44,11 +44,20 @@ class RecipeItem extends Component {
         </p>
         <img src={this.props.img} alt={this.props.dish} />
         <div className="recipe-button-wrapper">
-          <button id="recipe-button" onClick={this.handleClick}>
+          <button
+            id="recipe-button"
+            onClick={() => {
+              let comment = { comment: this.state.newComment };
+              axios
+                .put(`/api/recipes/${this.props.id}`, comment)
+                .then(alert("comment updated"));
+            }}
+          >
             Edit Comment
           </button>
           <input
             id="edit-comment"
+            type="text"
             placeholder="type here to change comments"
             value={this.state.newComment}
             onChange={this.handleChange}
