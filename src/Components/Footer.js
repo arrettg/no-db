@@ -1,15 +1,13 @@
-import React from 'react'
+import React from "react";
+import "../styles/auth.css";
 
 function Footer() {
-
-
-
-    return (
-        <header className="nav">
-            <h1> Bon Appetit!</h1>
-        </header>
-
-    )
+  //   return (
+  //     <footer className="foot">
+  //       <h1> Bon Appetit!</h1>
+  //     </footer>
+  //   );
+  return null;
 }
 
-export default Footer
+export default Footer;
