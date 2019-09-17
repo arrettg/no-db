@@ -11,6 +11,7 @@ const { SESSION_SECRET, CONNECTION_STRING } = process.env;
 
 const app = require("express")();
 
+app.use(express.static(`${__dirname}/../build`));
 app.use(express.json());
 
 massive(CONNECTION_STRING).then(db => {
